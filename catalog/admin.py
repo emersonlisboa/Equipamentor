@@ -9,9 +9,9 @@ class CorporationAdmin(admin.ModelAdmin):
     list_filter = ('name', 'local', 'country')
 
 class EquipmentAdmin(admin.ModelAdmin):
-    list_display = ('id','local' , 'sn','tag', 'modelo', 'fabricante' , 'status',  'image')
-    fields = [ 'sn','tag', 'modelo', 'fabricante' , 'status','local', 'image']
-    list_filter = ('status','local', 'modelo', 'fabricante')
+    list_display = ('id', 'description','local' , 'sn','tag', 'modelo', 'fabricante' , 'status')
+    fields = [ 'sn','description','tag', 'modelo', 'fabricante' , 'status','local', 'detail', 'image']
+    list_filter = ('status','description','local', 'modelo', 'fabricante')
 
 class FactoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'country',  'createdAt', 'status')
@@ -31,9 +31,9 @@ class LocalAdmin(admin.ModelAdmin):
     list_filter = ('status', 'name')  
 
 class EmployeerAdmin(admin.ModelAdmin):
-    list_display = ('id', 'registerNumber','name', 'cargo', 'departament','createdAt',  'status')
-    fields = [ 'name', 'registerNumber', 'cargo', 'departament','status']
-    list_filter = ('cargo', 'status', 'departament')
+    list_display = ('id', 'registerNumber','name', 'cargo', 'departament', 'admissionDate','createdAt',  'status')
+    fields = [ 'name', 'registerNumber', 'cargo', 'departament', 'admissionDate','status']
+    list_filter = ('cargo', 'status', 'admissionDate','departament')
 
 class DepartamentAdmin(admin.ModelAdmin):
     list_display = ('id','name', 'createdAt', 'status')

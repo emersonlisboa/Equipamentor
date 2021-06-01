@@ -60,11 +60,13 @@ class Factory(models.Model):
 class Equipment(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     sn = models.CharField(max_length=200)
+    description = models.CharField(max_length=30, null=True)
     tag = models.CharField(max_length=200)
     modelo = models.CharField(max_length=200 )
     image = models.ImageField(max_length=100, null=True,  blank=True)
     fabricante = models.ForeignKey('Factory', on_delete=models.SET_NULL, null=True)
     local = models.ForeignKey('Local',on_delete=models.SET_NULL, null=True )
+    detail = models.TextField(null=True)
     LOAN_STATUS = (
         ('a', 'Ativo'),
         ('i', 'Inativo'),
@@ -150,6 +152,7 @@ class Employeer(models.Model):
     name = models.CharField(max_length=200)
     createdAt =  models.DateField(auto_now_add=True)
     registerNumber = models.BigIntegerField()
+    admissionDate = models.DateField(null=True)
     departament = models.ForeignKey('Departament', on_delete=models.SET_NULL, null=True)
  
     LOAN_STATUS = (
